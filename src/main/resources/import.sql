@@ -1,0 +1,10 @@
+insert into tb_category (name) values ('Eletrônicos');
+insert into tb_category (name) values ('Eletrodomésticos');
+insert into tb_category (name) values ('Móveis');
+insert into tb_category (name) values ('Vestuário');
+insert into tb_category (name) values ('Calçados');
+insert into tb_category (name) values ('Esportes');
+insert into tb_category (name) values ('Brinquedos');
+insert into tb_category (name) values ('Livros');
+insert into tb_category (name) values ('Automóveis');
+insert into tb_category (name) values ('Alimentos');
