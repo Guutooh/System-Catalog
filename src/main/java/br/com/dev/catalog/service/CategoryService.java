@@ -5,6 +5,8 @@ import br.com.dev.catalog.entities.Category;
 import br.com.dev.catalog.repository.CategoryRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,10 +22,10 @@ public class CategoryService {
     private CategoryRepository repository;
 
     @Transactional(readOnly = true)
-    public List<CategoryDto> findAll() {
+    public Page<CategoryDto> findAll (String name, Pageable pageable) {
 
-        List<Category> result = repository.findAll();
+        Page<Category> result = repository.searchByName(name, pageable);
 
-        return result.stream().map(category -> mapper.map(category, CategoryDto.class)).toList();
+        return result.map(category -> mapper.map(category, CategoryDto.class));
     }
 }
