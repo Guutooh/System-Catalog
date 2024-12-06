@@ -1,5 +1,6 @@
 package br.com.dev.catalog.Controller;
 
+import br.com.dev.catalog.dto.CategoryDto;
 import br.com.dev.catalog.entities.Category;
 import br.com.dev.catalog.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ public class CategoryController {
     private CategoryService service;
 
     @GetMapping
-    public ResponseEntity<List<Category>> findAll(){
+    public ResponseEntity<List<CategoryDto>> findAll(){
         return ResponseEntity.ok(service.findAll());
     }
 }
