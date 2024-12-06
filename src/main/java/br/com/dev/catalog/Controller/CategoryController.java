@@ -1,7 +1,7 @@
 package br.com.dev.catalog.Controller;
 
 import br.com.dev.catalog.dto.CategoryDto;
-import br.com.dev.catalog.entities.Category;
+
 import br.com.dev.catalog.service.CategoryService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
-import java.util.List;
 
 @RestController
 @RequestMapping("/categories")

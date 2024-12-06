@@ -44,7 +44,10 @@ public class CategoryService {
     @Transactional
     public CategoryDto insert(CategoryDto dto) {
 
+
      Category category = mapper.map(dto, Category.class);
+
+     category = repository.save(category);
 
      return mapper.map(category, CategoryDto.class);
 
@@ -83,4 +86,7 @@ public class CategoryService {
             throw new DatabaseException("Falha de integridade referencial ao excluir o recurso com ID: " + id);
         }
     }
+
+
+
 }
