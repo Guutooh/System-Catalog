@@ -1,10 +1,11 @@
-package br.com.dev.ecommerce.exceptions.handlers;
+package br.com.dev.catalog.exceptions.handlers;
 
 
 
-import br.com.dev.ecommerce.exceptions.DatabaseException;
-import br.com.dev.ecommerce.exceptions.ForbiddenException;
-import br.com.dev.ecommerce.exceptions.ResourceNotFoundException;
+
+import br.com.dev.catalog.exceptions.DatabaseException;
+import br.com.dev.catalog.exceptions.ForbiddenException;
+import br.com.dev.catalog.exceptions.ResourceNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

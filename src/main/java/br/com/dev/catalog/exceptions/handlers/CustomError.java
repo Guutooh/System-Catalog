@@ -1,4 +1,4 @@
-package br.com.dev.ecommerce.exceptions.handlers;
+package br.com.dev.catalog.exceptions.handlers;
 
 
 import lombok.AllArgsConstructor;
