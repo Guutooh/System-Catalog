@@ -28,4 +28,16 @@ public class CategoryService {
 
         return result.map(category -> mapper.map(category, CategoryDto.class));
     }
+
+    @Transactional(readOnly = true)
+    public CategoryDto findById(Long id) {
+
+        Category category = repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Recurso não encontrado"));
+
+        return mapper.map(category, CategoryDto.class);
+    }
+
+
+
 }
