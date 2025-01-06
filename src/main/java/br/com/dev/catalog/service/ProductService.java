@@ -1,10 +1,12 @@
 package br.com.dev.catalog.service;
 
+import br.com.dev.catalog.dto.CategoryDto;
 import br.com.dev.catalog.dto.ProductDto;
 import br.com.dev.catalog.entities.Category;
 import br.com.dev.catalog.entities.Product;
 import br.com.dev.catalog.exceptions.DatabaseException;
 import br.com.dev.catalog.exceptions.ResourceNotFoundException;
+import br.com.dev.catalog.repository.CategoryRepository;
 import br.com.dev.catalog.repository.ProductRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
@@ -24,6 +26,8 @@ public class ProductService {
 
     @Autowired
     private ProductRepository repository;
+
+    private CategoryRepository categoryRepository;
 
     @Transactional(readOnly = true)
     public Page<ProductDto> findAll(String name, Pageable pageable) {
@@ -62,6 +66,13 @@ public class ProductService {
             Product entity = repository.getReferenceById(id);
 
             mapper.map(dto, entity);
+
+            entity.getCategories().clear();
+
+            for (CategoryDto catDto : dto.getCategories()) {
+                Category category = categoryRepository.getReferenceById(catDto.getId());
+                entity.getCategories().add(category);
+            }
 
             entity = repository.save(entity);
 

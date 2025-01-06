@@ -23,6 +23,12 @@ public class Category implements Serializable {
 
     private String name;
 
+
+    public Category(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     @Getter
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant createdAt;
